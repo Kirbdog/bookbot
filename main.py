@@ -1,9 +1,8 @@
 def count_words(file):
     file_as_array = file.split()
-    num_words = 0
-
-    for word in file_as_array:
-        num_words += 1
+    
+    num_words = len(file_as_array)
+    
     return num_words
 
 with open("books/frankenstein.txt") as f:
