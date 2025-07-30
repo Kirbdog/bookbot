@@ -11,11 +11,20 @@ def get_book_text(filepath):
 
 def main():
     book_text = get_book_text('books/frankenstein.txt')
-    print(f'{count_words(book_text)} words found in the document')
+    
+    num_chars = count_words(book_text)
+    sorted_text_info = sort_dict(count_characters(book_text))
 
-    num_chars = count_characters(book_text)
-    print(f'The number of each character in the book is {num_chars}')
+    print('============ BOOKBOT ============\n'
+          'Analyzing book found at books/frankenstein.txt...\n'
+          '----------- Word Count ----------\n'
+         f'Found {num_chars} total words\n'
+          '--------- Character Count -------')
 
-    sorted_text_info = sort_dict(num_chars)
+    for dict in range(0, sorted_text_info.__len__()):
+        if sorted_text_info[dict]['char'].isalpha():
+            print(f'{sorted_text_info[dict]['char']}: {sorted_text_info[dict]['num']}')
+        else:
+            dict += 1
 
 main()
